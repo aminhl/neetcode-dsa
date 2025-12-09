@@ -1,10 +1,14 @@
 package org.nexthope;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import org.nexthope.arrays.ContainsDuplicate;
+import org.nexthope.arrays.ValidAnagram;
+
 public class Main {
 
     public static void main(String[] args) {
+        /* arrays & hashing */
+        ContainsDuplicate.hasDuplicate(new int[]{1, 2, 3, 3});
+        ValidAnagram.isAnagram("racecar","carrace");
 
     }
 
