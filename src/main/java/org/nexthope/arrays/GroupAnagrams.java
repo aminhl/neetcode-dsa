@@ -12,7 +12,6 @@ public class GroupAnagrams {
             String key = String.valueOf(chars);
             result.computeIfAbsent(key, k -> new ArrayList<>()).add(s);
         }
-        System.out.println(result.values());
         return result.values().stream().toList();
     }
 
