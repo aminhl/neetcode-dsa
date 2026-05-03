@@ -3,6 +3,7 @@ package org.nexthope.neetcode.arrays;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class LongestConsecutiveSequence {
 
@@ -45,6 +46,31 @@ public class LongestConsecutiveSequence {
             ct = Math.max(streak, ct);
         }
         return ct;
+    }
+
+    public static int longestConsecutiveII(int[] nums) {
+        int n = nums.length;
+        if (n < 2)
+            return n;
+
+        Set<Integer> store = Arrays.stream(nums)
+                .boxed()
+                .collect(Collectors.toSet());
+
+        int maxConsc = 1;
+        for (int nb : store) {
+            int maxConscL = 1;
+            if (store.contains(nb - 1)) continue;
+            int next = 1;
+            while (store.contains(nb + next)) {
+                ++next;
+                ++maxConscL;
+            }
+            if (maxConscL > maxConsc)
+                maxConsc = maxConscL;
+        }
+        return maxConsc;
+
     }
 
 }
